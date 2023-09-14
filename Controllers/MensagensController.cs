@@ -11,7 +11,7 @@ namespace ReadMessage.Controllers
     {
         private List<Mensagem> _mensagens = new List<Mensagem>
         {
-            new Mensagem { Id = 1, Texto = "Teste!", Status = Status.NOREAD },
+            new Mensagem { Id = 1, Texto = "Teste!", Status = Status.READ },
             new Mensagem { Id = 2, Texto = "Teste Api de print para Daniel.", Status = Status.NOREAD }
         };
 
@@ -22,7 +22,7 @@ namespace ReadMessage.Controllers
         }
 
 
-        [HttpPut("{id}/mark-as-read")]
+        [HttpPut("mark-as-read/{id}")]
         public IActionResult MarcarMensagemComoLida(int id)
         {
             var mensagem = _mensagens.Find(m => m.Id == id);
@@ -41,7 +41,7 @@ namespace ReadMessage.Controllers
         }
         
         
-        [HttpPut("{id}/mark-no-read")]
+        [HttpPut("mark-no-read/{id}")]
         public IActionResult MarcarMensagemComoNaoLida(int id)
         {
             var mensagem = _mensagens.Find(m => m.Id == id);
